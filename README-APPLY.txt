@@ -8,7 +8,7 @@ documented in SUPABASE-SETUP.md. Do not publish a Supabase service-role/secret
 key; only the project's publishable/anon key belongs in supabase-config.js.
 
 Published pages:
-- index.html: journal homepage and author information for Kumar Ashwani.
+- index.html: journal homepage and author information for Ashwani Ashu.
 - articles/rag-pipeline.html: RAG pipeline architecture.
 - articles/ai-agents.html: AI agent tools, state, and control loops.
 - articles/ai-system-design.html: production GenAI system design.

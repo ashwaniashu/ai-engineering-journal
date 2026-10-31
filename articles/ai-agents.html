@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Agents: Tools &amp; Control Loops | AI Engineering Journal</title>
-  <meta name="description" content="Understand AI agent architecture, tool calling, execution loops, single-agent versus multi-agent designs, guardrails, and evaluation.">
+  <meta name="description" content="Understand AI agent architecture and harness engineering: tool calling, execution loops, state, guardrails, multi-agent trade-offs, and evaluation.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-agents.html">
-  <meta name="author" content="Kumar Ashwani">
+  <meta name="author" content="Ashwani Ashu">
   <meta property="og:type" content="article">
   <meta property="og:title" content="AI Agents: Tools &amp; Control Loops | AI Engineering Journal">
-  <meta property="og:description" content="Understand AI agent architecture, tool calling, execution loops, single-agent versus multi-agent designs, guardrails, and evaluation.">
+  <meta property="og:description" content="Understand AI agent architecture and harness engineering: tool calling, execution loops, state, guardrails, multi-agent trade-offs, and evaluation.">
   <meta property="og:url" content="https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-agents.html">
   <meta property="og:site_name" content="AI Engineering Journal">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="AI Agents: Tools &amp; Control Loops | AI Engineering Journal">
-  <meta name="twitter:description" content="Understand AI agent architecture, tool calling, execution loops, single-agent versus multi-agent designs, guardrails, and evaluation.">
+  <meta name="twitter:description" content="Understand AI agent architecture and harness engineering: tool calling, execution loops, state, guardrails, multi-agent trade-offs, and evaluation.">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../article.css">
   <script type="application/ld+json">
@@ -24,12 +24,12 @@
     "@type": "BlogPosting",
     "@id": "https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-agents.html#blogposting",
     "headline": "AI Agents Explained: Tools, State and Control Loops",
-    "description": "Understand AI agent architecture, tool calling, execution loops, single-agent versus multi-agent designs, guardrails, and evaluation.",
+    "description": "Understand AI agent architecture and harness engineering: tool calling, execution loops, state, guardrails, multi-agent trade-offs, and evaluation.",
     "mainEntityOfPage": "https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-agents.html",
     "author": {
       "@type": "Person",
-      "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#kumar-ashwani",
-      "name": "Kumar Ashwani",
+      "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#ashwani-ashu",
+      "name": "Ashwani Ashu",
       "url": "https://ashwaniashu.github.io/ai-engineering-journal/#about"
     },
     "publisher": {
@@ -59,7 +59,7 @@
     <p class="eyebrow">AI AGENTS</p>
     <h1>AI Agents Explained: Tools, State and Control Loops</h1>
     <p class="article-lede">Understand how an AI agent uses tools and state to complete a task, and how to design the surrounding software for reliable, observable execution.</p>
-    <p class="article-meta">By <a href="../#about">Kumar Ashwani</a> · AI Engineering Journal · Practical engineering guide</p>
+    <p class="article-meta">By <a href="../#about">Ashwani Ashu</a> · AI Engineering Journal · Practical engineering guide</p>
     <button class="bookmark-button" type="button" data-bookmark-slug="ai-agents" aria-pressed="false">Save article</button>
     
 <h2>What is an AI agent?</h2>
@@ -72,6 +72,9 @@
   <li><strong>Observe:</strong> inspect the tool result, including errors or missing data.</li>
   <li><strong>Continue or stop:</strong> perform another permitted step or return a final response.</li>
 </ol>
+<h2>What is an AI agent harness?</h2>
+<p>An AI agent harness is the application and runtime around a model that lets an agent operate within a real system. It connects the model to approved tools and manages context, state, execution flow, and results. Harness engineering is the work of designing that surrounding system so the agent can act usefully while remaining observable and controlled.</p>
+<p>A dependable harness keeps critical responsibilities in application code: validate tool inputs, enforce user permissions, set execution limits, handle timeouts, and record traces for debugging and evaluation. The model can propose a step; the harness decides whether and how that step is carried out.</p>
 <h2>Tools should have narrow contracts</h2>
 <p>Expose small functions with clear input schemas and explicit permissions. For example, a read-only product lookup tool should not also be able to modify a customer's order. Validate arguments on the server, check authorization for every sensitive action, and never treat model-generated arguments as trusted.</p>
 <pre><code>def get_order_status(order_id: str, user_id: str):

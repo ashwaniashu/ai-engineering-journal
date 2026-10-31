@@ -1,16 +1,102 @@
-/* Shared article layout; keeps the existing site's stylesheet intact. */
-.article-page { max-width: 850px; margin: 0 auto; padding: 3rem 1.25rem 5rem; line-height: 1.75; }
-.article-page .breadcrumbs { font-size: .9rem; margin-bottom: 2rem; opacity: .8; }
-.article-page h1 { line-height: 1.15; margin: .5rem 0 1rem; }
-.article-page h2 { margin-top: 2.5rem; line-height: 1.25; }
-.article-page h3 { margin-top: 1.6rem; }
-.article-page .article-lede { font-size: 1.15rem; max-width: 70ch; }
-.article-page .article-meta { font-size: .9rem; opacity: .75; }
-.article-page p, .article-page li { max-width: 78ch; }
-.article-page pre { overflow-x: auto; padding: 1rem; border-radius: 10px; background: #111827; color: #f9fafb; }
-.article-page code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-.article-page :not(pre) > code { padding: .1rem .3rem; border-radius: 4px; background: rgba(127,127,127,.16); }
-.article-page .callout { padding: 1rem 1.2rem; border-left: 4px solid currentColor; background: rgba(127,127,127,.1); border-radius: 6px; }
-.article-page .related-articles { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid rgba(127,127,127,.3); }
-.article-page a { text-underline-offset: .2em; }
+/* Shared long-form reading styles for article and account pages. */
+.article-page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) 1.5rem 6rem;
+  line-height: 1.82;
+}
+
+.article-page .breadcrumbs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 2.8rem;
+  padding: 0;
+  color: #788295;
+  font-size: .8rem;
+}
+.article-page .breadcrumbs a { color: #5262c3; }
+.article-page .breadcrumbs a:hover { color: #394ba9; }
+
+.article-page h1 {
+  max-width: 23ch;
+  margin: .45rem 0 1.25rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.45rem, 5.3vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+.article-page h2 {
+  margin: 3.2rem 0 .85rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 3vw, 1.9rem);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -.025em;
+  scroll-margin-top: 6rem;
+}
+.article-page h3 { margin-top: 1.9rem; font-size: 1.12rem; line-height: 1.4; letter-spacing: -.02em; scroll-margin-top: 6rem; }
+.article-page .article-lede {
+  max-width: 66ch;
+  margin: 0 0 1.3rem;
+  color: #46546c;
+  font-size: clamp(1.08rem, 2vw, 1.2rem);
+  line-height: 1.75;
+}
+.article-page .article-meta { margin: 1.2rem 0; color: #737e90; font-size: .84rem; }
+.article-page p, .article-page li { max-width: 70ch; color: #46546a; }
+.article-page li { padding-left: .25rem; margin: .45rem 0; }
+.article-page li::marker { color: #6675d9; }
+.article-page strong { color: #263650; }
+.article-page pre {
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 1.2rem 1.3rem;
+  border: 1px solid #e4e1e9;
+  border-radius: 9px;
+  background: #f0eff3;
+  color: #2f3d54;
+  box-shadow: inset 0 1px 2px rgba(32, 45, 70, .03);
+  tab-size: 2;
+}
+.article-page code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .91em; }
+.article-page :not(pre) > code {
+  padding: .15rem .38rem;
+  border: 1px solid #e8e4ef;
+  border-radius: 5px;
+  background: #f1eff9;
+  color: #4a56a4;
+  overflow-wrap: anywhere;
+}
+.article-page .callout {
+  margin: 2rem 0;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid #dedbf0;
+  border-left: 3px solid #7885dc;
+  border-radius: 4px 10px 10px 4px;
+  background: #f1effa;
+}
+.article-page .related-articles { margin-top: 3.5rem; padding: 1.5rem 0 0; border-top: 1px solid var(--border); }
+.article-page .related-articles h2 { margin-top: 0; }
+.article-page a {
+  color: #5262c3;
+  text-decoration: underline;
+  text-decoration-color: rgba(82, 98, 195, .35);
+  text-underline-offset: .22em;
+  transition: color .18s ease, text-decoration-color .18s ease;
+}
+.article-page a:hover { color: #394ba9; text-decoration-color: currentColor; }
+.article-page .breadcrumbs a, .article-page .primary-button { text-decoration: none; }
+.article-page .bookmark-button { margin: .5rem 0 1.5rem; }
+.article-page > .setup-notice { margin: 1.2rem 0; padding: 12px 15px; border: 1px solid var(--border); border-radius: 9px; background: #fff; }
+.article-page .article-meta a { color: #5262c3; }
 .search-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+@media (max-width: 600px) {
+  .article-page { padding: 2rem 1.15rem 4rem; }
+  .article-page .breadcrumbs { margin-bottom: 2rem; }
+  .article-page h1 { font-size: clamp(2.1rem, 10vw, 3rem); }
+  .article-page h2 { margin-top: 2.35rem; }
+  .article-page pre { padding: 1rem; font-size: .86rem; }
+}

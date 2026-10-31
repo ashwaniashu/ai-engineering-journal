@@ -131,8 +131,8 @@
 
   if (!configIsReady || !window.supabase?.createClient) {
     const message = !configIsReady
-      ? "Account services are not available yet. Saved articles and member access will appear here once setup is complete."
-      : "Account services could not be reached. Please check your connection and try again.";
+      ? "Sign-in and saved articles are not available right now. Please try again later."
+      : "We couldn’t connect to your account. Please check your connection and try again.";
     showMessage(accountSetupMessage, message, false, true);
     bookmarkButtons.forEach(button => {
       button.disabled = true;
@@ -212,7 +212,7 @@
     const premiumSignin = document.querySelector(".premium-signin");
     if (premiumSignin) premiumSignin.hidden = Boolean(currentUser);
     if (!currentUser && premiumMessage) {
-      showMessage(premiumMessage, "Sign in to view this member article.", false, true);
+      showMessage(premiumMessage, "Sign in to continue reading this guide.", false, true);
     }
   }
 
@@ -272,7 +272,7 @@
       return;
     }
     if (!data) {
-      showMessage(premiumMessage, "This premium article is not published yet.");
+      showMessage(premiumMessage, "This guide isn’t available just yet. Please check back soon.");
       return;
     }
 
