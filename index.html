@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Practical guides to GenAI, RAG, AI agents and system design.">
+  <title>AI Engineering Journal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="index.html">AI Engineering Journal<span>.</span></a>
+    <nav>
+      <a href="#articles">Articles</a>
+      <a href="#topics">Topics</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">ENGINEERING THE FUTURE</p>
+      <h1>From AI concepts<br>to <span>real-world systems.</span></h1>
+      <p class="intro">
+        Practical lessons on GenAI, RAG, AI agents, and system
+        design — explained by building real things.
+      </p>
+      <a class="primary-button" href="#articles">Explore articles →</a>
+    </section>
+
+    <section id="topics" class="topics">
+      <p class="eyebrow">EXPLORE BY TOPIC</p>
+      <div class="filters">
+        <button class="filter active" data-topic="all">All</button>
+        <button class="filter" data-topic="GenAI">GenAI</button>
+        <button class="filter" data-topic="RAG">RAG</button>
+        <button class="filter" data-topic="AI Agents">AI Agents</button>
+        <button class="filter" data-topic="System Design">System Design</button>
+      </div>
+    </section>
+
+    <section id="articles" class="articles">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE KNOWLEDGE BASE</p>
+          <h2>Latest articles</h2>
+        </div>
+        <input id="search" type="search" placeholder="Search articles...">
+      </div>
+
+      <div id="article-list" class="article-grid">
+        <article class="article-card" data-topic="RAG">
+          <p class="tag">RAG</p>
+          <h3>Building a RAG Pipeline from Scratch</h3>
+          <p>Understand chunking, embeddings, retrieval, and generation.</p>
+          <a href="articles/rag-pipeline.html">Read article →</a>
+        </article>
+
+        <article class="article-card" data-topic="AI Agents">
+          <p class="tag">AI AGENTS</p>
+          <h3>How AI Agents Use Tools</h3>
+          <p>Explore tool calling, agent loops, and workflow orchestration.</p>
+          <a href="articles/ai-agents.html">Read article →</a>
+        </article>
+
+        <article class="article-card" data-topic="System Design">
+          <p class="tag">SYSTEM DESIGN</p>
+          <h3>Designing Scalable AI APIs</h3>
+          <p>Explore latency, caching, queues, retries, and observability.</p>
+          <a href="articles/ai-system-design.html">Read article →</a>
+        </article>
+      </div>
+      <p id="empty-state" hidden>No matching articles found.</p>
+    </section>
+
+    <section id="about" class="about">
+      <p class="eyebrow">ABOUT THIS JOURNAL</p>
+      <h2>Learn it. Build it. Explain it.</h2>
+      <p>A practical engineering journal focused on turning AI
+         theory into reliable, useful software systems.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 AI Engineering Journal · Built for curious engineers.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
