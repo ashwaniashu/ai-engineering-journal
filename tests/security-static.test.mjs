@@ -13,7 +13,8 @@ const bookmarkTests = await readFile(new URL("../supabase/tests/bookmarks_rls_te
 const premiumTests = await readFile(new URL("../supabase/tests/premium_articles_rls_test.sql", import.meta.url), "utf8");
 
 test("public configuration has no server credential", () => {
-  assert.match(config, /anonKey:\s*""/);
+  assert.match(config, /url:\s*"https:\/\/[^"]+\.supabase\.co"/);
+  assert.match(config, /anonKey:\s*"[^"]+"/);
   assert.doesNotMatch(config, /sb_secret_|service_role/i);
 });
 
