@@ -1,0 +1,16 @@
+/* Shared article layout; keeps the existing site's stylesheet intact. */
+.article-page { max-width: 850px; margin: 0 auto; padding: 3rem 1.25rem 5rem; line-height: 1.75; }
+.article-page .breadcrumbs { font-size: .9rem; margin-bottom: 2rem; opacity: .8; }
+.article-page h1 { line-height: 1.15; margin: .5rem 0 1rem; }
+.article-page h2 { margin-top: 2.5rem; line-height: 1.25; }
+.article-page h3 { margin-top: 1.6rem; }
+.article-page .article-lede { font-size: 1.15rem; max-width: 70ch; }
+.article-page .article-meta { font-size: .9rem; opacity: .75; }
+.article-page p, .article-page li { max-width: 78ch; }
+.article-page pre { overflow-x: auto; padding: 1rem; border-radius: 10px; background: #111827; color: #f9fafb; }
+.article-page code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+.article-page :not(pre) > code { padding: .1rem .3rem; border-radius: 4px; background: rgba(127,127,127,.16); }
+.article-page .callout { padding: 1rem 1.2rem; border-left: 4px solid currentColor; background: rgba(127,127,127,.1); border-radius: 6px; }
+.article-page .related-articles { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid rgba(127,127,127,.3); }
+.article-page a { text-underline-offset: .2em; }
+.search-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }

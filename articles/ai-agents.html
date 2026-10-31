@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Agents Explained: Tools, State and Control Loops | AI Engineering Journal</title>
+  <meta name="description" content="Understand AI agent architecture, tool calling, execution loops, single-agent versus multi-agent designs, guardrails, and evaluation.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-agents.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI Agents Explained: Tools, State and Control Loops">
+  <meta property="og:description" content="Understand AI agent architecture, tool calling, execution loops, single-agent versus multi-agent designs, guardrails, and evaluation.">
+  <meta property="og:url" content="https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-agents.html">
+  <meta property="og:site_name" content="AI Engineering Journal">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../article.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "AI Agents Explained: Tools, State and Control Loops",
+    "description": "Understand AI agent architecture, tool calling, execution loops, single-agent versus multi-agent designs, guardrails, and evaluation.",
+    "mainEntityOfPage": "https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-agents.html",
+    "publisher": { "@type": "Organization", "name": "AI Engineering Journal" }
+  }
+  </script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="../index.html">AI Engineering Journal<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="../index.html#articles">Articles</a>
+      <a href="../index.html#topics">Topics</a>
+      <a href="../index.html#about">About</a>
+    </nav>
+  </header>
+  <main class="article-page">
+    <p class="breadcrumbs"><a href="../index.html">Home</a> / AI Agents</p>
+    <p class="eyebrow">AI AGENTS</p>
+    <h1>AI Agents Explained: Tools, State and Control Loops</h1>
+    <p class="article-lede">Understand how an AI agent uses tools and state to complete a task, and how to design the surrounding software for reliable, observable execution.</p>
+    <p class="article-meta">AI Engineering Journal · Practical engineering guide</p>
+    
+<h2>What is an AI agent?</h2>
+<p>An AI agent is an application in which a model uses context and available tools to decide what action to take next. A simple chatbot usually responds to a message. An agent can call a search function, query an order system, execute a permitted operation, inspect the result, and then respond or continue working.</p>
+<h2>The agent control loop</h2>
+<ol>
+  <li><strong>Receive:</strong> parse the user request and relevant conversation state.</li>
+  <li><strong>Decide:</strong> choose whether to answer directly or call an available tool.</li>
+  <li><strong>Act:</strong> execute the tool call through validated application code.</li>
+  <li><strong>Observe:</strong> inspect the tool result, including errors or missing data.</li>
+  <li><strong>Continue or stop:</strong> perform another permitted step or return a final response.</li>
+</ol>
+<h2>Tools should have narrow contracts</h2>
+<p>Expose small functions with clear input schemas and explicit permissions. For example, a read-only product lookup tool should not also be able to modify a customer's order. Validate arguments on the server, check authorization for every sensitive action, and never treat model-generated arguments as trusted.</p>
+<pre><code>def get_order_status(order_id: str, user_id: str):
+    # Validate input and verify that this user may access this order.
+    order = order_service.get_order_for_user(
+        order_id=order_id,
+        user_id=user_id
+    )
+    if order is None:
+        return {"ok": False, "error": "Order not found"}
+    return {
+        "ok": True,
+        "status": order.status,
+        "estimated_delivery": order.estimated_delivery
+    }</code></pre>
+<p>This example illustrates an application-owned tool. The model may request the tool, but your backend remains responsible for authorization and data access.</p>
+<h2>Single agent or multiple agents?</h2>
+<p>Start with one agent and a small set of tools when the workflow is straightforward. Multiple agents can help when tasks have genuinely different responsibilities or can be performed independently, but they add coordination overhead, more model calls, harder debugging, and additional failure paths. A multi-agent design should earn its complexity through measured improvements.</p>
+<h2>Reliability and safety controls</h2>
+<ul>
+  <li>Define allowed tools and enforce permissions outside the model.</li>
+  <li>Set a maximum number of tool calls and a total execution deadline.</li>
+  <li>Use timeouts, bounded retries, and idempotency for operations that change state.</li>
+  <li>Require human confirmation for high-impact or irreversible actions.</li>
+  <li>Validate tool outputs and handle malformed responses.</li>
+  <li>Trace prompts, tool calls, durations, errors, and token usage without logging secrets or unnecessary personal data.</li>
+</ul>
+<h2>How to evaluate an agent</h2>
+<p>Create task-based tests with expected outcomes. Measure task completion, tool-selection accuracy, invalid or unnecessary calls, policy violations, latency, and cost. Test edge cases such as missing data, tool timeouts, ambiguous requests, and permission denials. Evaluate complete workflows, not only the model's final text.</p>
+<div class="callout"><strong>Engineering takeaway:</strong> an agent is a model-driven control loop inside a normal software system. Keep execution, permissions, validation, and observability under application control.</div>
+
+    <section class="related-articles">
+      <h2>Continue learning</h2>
+      <ul>
+        <li><a href="rag-pipeline.html">RAG pipeline architecture</a></li>
+        <li><a href="ai-agents.html">AI agents: tools and control loops</a></li>
+        <li><a href="ai-system-design.html">GenAI system design</a></li>
+      </ul>
+      <p><a href="../index.html">← Back to AI Engineering Journal</a></p>
+    </section>
+  </main>
+  <footer><p>© 2026 AI Engineering Journal · Built for curious engineers.</p></footer>
+</body>
+</html>

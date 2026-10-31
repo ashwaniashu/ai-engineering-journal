@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GenAI System Design: Latency, Caching and Reliability | AI Engineering Journal</title>
+  <meta name="description" content="Learn production GenAI system design practices for latency measurement, caching, retries, timeouts, observability, cost control, and graceful failure.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-system-design.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="GenAI System Design: Latency, Caching and Reliability">
+  <meta property="og:description" content="Learn production GenAI system design practices for latency measurement, caching, retries, timeouts, observability, cost control, and graceful failure.">
+  <meta property="og:url" content="https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-system-design.html">
+  <meta property="og:site_name" content="AI Engineering Journal">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../article.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "GenAI System Design: Latency, Caching and Reliability",
+    "description": "Learn production GenAI system design practices for latency measurement, caching, retries, timeouts, observability, cost control, and graceful failure.",
+    "mainEntityOfPage": "https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-system-design.html",
+    "publisher": { "@type": "Organization", "name": "AI Engineering Journal" }
+  }
+  </script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="../index.html">AI Engineering Journal<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="../index.html#articles">Articles</a>
+      <a href="../index.html#topics">Topics</a>
+      <a href="../index.html#about">About</a>
+    </nav>
+  </header>
+  <main class="article-page">
+    <p class="breadcrumbs"><a href="../index.html">Home</a> / System Design</p>
+    <p class="eyebrow">SYSTEM DESIGN</p>
+    <h1>GenAI System Design: Latency, Caching and Reliability</h1>
+    <p class="article-lede">A practical guide to designing production GenAI APIs that are measurable, resilient, cost-aware, and safe under partial failure.</p>
+    <p class="article-meta">AI Engineering Journal · Practical engineering guide</p>
+    
+<h2>Start with the request path</h2>
+<p>A production GenAI request may pass through an API gateway, authentication, input validation, retrieval, one or more model calls, post-processing, and response streaming. Before optimizing, measure each stage independently. A user-visible response time of ten seconds does not prove the model call itself takes ten seconds.</p>
+<h2>Measure latency by stage</h2>
+<p>Record timestamps around authentication, retrieval, reranking, prompt construction, model time-to-first-token, generation, and serialization. Use traces with a shared request ID so one slow request can be followed across services. Track p50, p95, and p99 latency rather than only averages.</p>
+<h2>Use timeouts and bounded retries</h2>
+<p>Set a deadline for the entire request and smaller timeouts for downstream calls. Retry only transient failures, cap attempts, add exponential backoff with jitter, and avoid retrying after the overall deadline. Retrying every failure can multiply load during an outage.</p>
+<h2>Cache carefully</h2>
+<ul>
+  <li><strong>Exact-response cache:</strong> reuse results for identical, safe requests.</li>
+  <li><strong>Semantic cache:</strong> reuse an answer for a meaningfully similar query only when similarity and correctness thresholds are appropriate.</li>
+  <li><strong>Retrieval cache:</strong> reuse retrieved candidates when the query and underlying content version permit it.</li>
+</ul>
+<p>Cache keys must include relevant tenant, permission, model, prompt, and data-version context. Never allow a cached answer or retrieved document from one user to leak to another. Define expiration and invalidation rules when source content changes.</p>
+<h2>Control model cost and throughput</h2>
+<p>Track input and output tokens, model selection, retries, and cost per successful task. Limit prompt size, retrieve only useful context, choose a model that meets the quality target, and use asynchronous work for tasks that do not need an immediate response. Apply rate limits and concurrency limits to protect downstream services.</p>
+<h2>Design for partial failure</h2>
+<p>Define what the system should do if retrieval is unavailable, a model provider times out, or a tool returns invalid data. Depending on the use case, return a clear temporary error, offer a limited fallback, or queue work for later. Do not silently fabricate an answer when required evidence is missing.</p>
+<h2>Observability checklist</h2>
+<ul>
+  <li>Request ID and stage-level latency</li>
+  <li>Model and prompt version</li>
+  <li>Token usage and estimated cost</li>
+  <li>Retrieval result IDs and evaluation signals</li>
+  <li>Timeouts, retries, rate-limit events, and tool errors</li>
+  <li>Quality feedback and representative offline evaluation results</li>
+</ul>
+<p>Protect observability data: redact secrets, minimize sensitive user content, restrict access, and set retention policies. Logs should help diagnose the system without becoming a second source of sensitive data.</p>
+<div class="callout"><strong>Engineering takeaway:</strong> production GenAI requires ordinary distributed-systems discipline plus model-specific quality and cost monitoring. Measure first, then optimize the bottleneck you can prove.</div>
+
+    <section class="related-articles">
+      <h2>Continue learning</h2>
+      <ul>
+        <li><a href="rag-pipeline.html">RAG pipeline architecture</a></li>
+        <li><a href="ai-agents.html">AI agents: tools and control loops</a></li>
+        <li><a href="ai-system-design.html">GenAI system design</a></li>
+      </ul>
+      <p><a href="../index.html">← Back to AI Engineering Journal</a></p>
+    </section>
+  </main>
+  <footer><p>© 2026 AI Engineering Journal · Built for curious engineers.</p></footer>
+</body>
+</html>

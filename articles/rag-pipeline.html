@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAG Pipeline Architecture: Retrieval, Context and Generation | AI Engineering Journal</title>
+  <meta name="description" content="Learn the main stages of a retrieval-augmented generation pipeline, including document ingestion, chunking, embeddings, hybrid search, reranking, and evaluation.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ashwaniashu.github.io/ai-engineering-journal/articles/rag-pipeline.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RAG Pipeline Architecture: Retrieval, Context and Generation">
+  <meta property="og:description" content="Learn the main stages of a retrieval-augmented generation pipeline, including document ingestion, chunking, embeddings, hybrid search, reranking, and evaluation.">
+  <meta property="og:url" content="https://ashwaniashu.github.io/ai-engineering-journal/articles/rag-pipeline.html">
+  <meta property="og:site_name" content="AI Engineering Journal">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../article.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "RAG Pipeline Architecture: Retrieval, Context and Generation",
+    "description": "Learn the main stages of a retrieval-augmented generation pipeline, including document ingestion, chunking, embeddings, hybrid search, reranking, and evaluation.",
+    "mainEntityOfPage": "https://ashwaniashu.github.io/ai-engineering-journal/articles/rag-pipeline.html",
+    "publisher": { "@type": "Organization", "name": "AI Engineering Journal" }
+  }
+  </script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="../index.html">AI Engineering Journal<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="../index.html#articles">Articles</a>
+      <a href="../index.html#topics">Topics</a>
+      <a href="../index.html#about">About</a>
+    </nav>
+  </header>
+  <main class="article-page">
+    <p class="breadcrumbs"><a href="../index.html">Home</a> / RAG</p>
+    <p class="eyebrow">RAG</p>
+    <h1>RAG Pipeline Architecture: Retrieval, Context and Generation</h1>
+    <p class="article-lede">A practical introduction to designing a retrieval-augmented generation pipeline, from document ingestion and chunking to retrieval, grounded generation, and evaluation.</p>
+    <p class="article-meta">AI Engineering Journal · Practical engineering guide</p>
+    
+<h2>What is a RAG pipeline?</h2>
+<p>Retrieval-augmented generation (RAG) gives a language model relevant information from an external knowledge source at answer time. Instead of relying only on information encoded in model parameters, the application retrieves passages and includes them in the prompt. RAG is useful when answers must reflect private documents, frequently updated information, or sources that can be cited.</p>
+<h2>Typical architecture</h2>
+<ol>
+  <li><strong>Ingest:</strong> load PDFs, HTML, files, or database records.</li>
+  <li><strong>Normalize:</strong> extract text and preserve useful structure such as headings, tables, page numbers, and source IDs.</li>
+  <li><strong>Chunk:</strong> split content into retrievable passages without losing essential context.</li>
+  <li><strong>Embed and index:</strong> convert chunks to vectors and store them alongside metadata in a search index.</li>
+  <li><strong>Retrieve:</strong> find candidate passages using vector search, keyword search, or a hybrid of both.</li>
+  <li><strong>Rerank and filter:</strong> reorder candidates and enforce metadata or access-control filters.</li>
+  <li><strong>Generate:</strong> provide the best evidence to the model and ask it to answer within that evidence.</li>
+  <li><strong>Evaluate:</strong> measure retrieval quality, answer correctness, groundedness, latency, and cost.</li>
+</ol>
+<h2>Chunking: start simple, then measure</h2>
+<p>Fixed-size chunks are a reasonable baseline because they are easy to implement and benchmark. Overlap can reduce the chance that a key sentence falls across a boundary, but excessive overlap increases index size and duplicate results. Structure-aware chunking can work better for manuals and policies because it preserves headings and sections.</p>
+<p>Do not choose a chunk size based on a universal rule. Build a small evaluation set of realistic questions, compare chunking strategies, and measure whether the correct evidence appears in the top results.</p>
+<h2>Vector search, keyword search, or hybrid search?</h2>
+<ul>
+  <li><strong>Vector search</strong> helps match semantically similar wording.</li>
+  <li><strong>Keyword search</strong> can be strong for exact terms, IDs, product codes, and rare phrases.</li>
+  <li><strong>Hybrid search</strong> combines both signals and can improve coverage when queries mix concepts with exact identifiers.</li>
+</ul>
+<p>When combining ranked lists, reciprocal rank fusion (RRF) is one common approach. A reranker can then score query-document pairs to improve the ordering of a smaller candidate set.</p>
+<h2>Minimal Python example</h2>
+<pre><code># Illustrative pseudocode: replace these functions with your chosen
+# document loader, embedding model, and vector database.
+
+documents = load_documents("knowledge-base/")
+chunks = split_documents(documents, chunk_size=700, overlap=100)
+index = build_search_index(chunks)
+
+def answer_question(question):
+    candidates = index.hybrid_search(question, top_k=20)
+    passages = rerank(question, candidates)[:5]
+    prompt = build_prompt(question, passages)
+    answer = llm.generate(prompt)
+    return {"answer": answer, "sources": [p.source for p in passages]}</code></pre>
+<p>This is a conceptual example, not a runnable library-specific implementation. Production code should include input validation, access-control filtering, exception handling, timeouts, logging, and tests.</p>
+<h2>How to evaluate a RAG system</h2>
+<p>Use a fixed set of representative questions with trusted answers and source documents. Track retrieval metrics such as Recall@k and MRR, then assess answer correctness and faithfulness to the retrieved evidence. Human review remains important: automated metrics can miss domain-specific errors and misleading citations.</p>
+<h2>Common failure modes</h2>
+<ul>
+  <li>Text extraction loses tables, columns, or page relationships.</li>
+  <li>Chunks lack enough context to answer a question.</li>
+  <li>Retrieval finds similar passages but misses the exact evidence.</li>
+  <li>Prompt instructions do not prevent unsupported answers.</li>
+  <li>Evaluation data does not represent real user questions.</li>
+  <li>Retrieved content is shown without checking user permissions.</li>
+</ul>
+<div class="callout"><strong>Engineering takeaway:</strong> RAG quality is not just a model choice. It is the combined result of data preparation, retrieval, ranking, prompting, access control, and evaluation.</div>
+
+    <section class="related-articles">
+      <h2>Continue learning</h2>
+      <ul>
+        <li><a href="rag-pipeline.html">RAG pipeline architecture</a></li>
+        <li><a href="ai-agents.html">AI agents: tools and control loops</a></li>
+        <li><a href="ai-system-design.html">GenAI system design</a></li>
+      </ul>
+      <p><a href="../index.html">← Back to AI Engineering Journal</a></p>
+    </section>
+  </main>
+  <footer><p>© 2026 AI Engineering Journal · Built for curious engineers.</p></footer>
+</body>
+</html>
