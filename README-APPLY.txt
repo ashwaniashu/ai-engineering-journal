@@ -1,22 +1,21 @@
-AI Engineering Journal — SEO update bundle
+AI Engineering Journal — site maintenance
 
-Files included:
-- index.html: updated homepage metadata, canonical URL, Open Graph metadata, WebSite structured data, improved article titles and copy.
-- robots.txt: permits crawling and points to the sitemap.
-- sitemap.xml: lists the homepage and three article pages.
-- article.css: shared readable article layout.
-- articles/*.html: three standalone articles with unique titles/descriptions/canonical URLs, internal links, and TechArticle structured data.
+This repository is the source for the GitHub Pages site:
+https://ashwaniashu.github.io/ai-engineering-journal/
 
-How to apply:
-1. Download and extract this ZIP.
-2. Open your existing local ai-engineering-journal project folder.
-3. Copy the files/folders from this bundle into that project, keeping your existing style.css and script.js.
-4. Allow index.html to be replaced when prompted.
-5. Confirm the articles folder contains the three HTML files.
-6. Preview index.html locally, then commit and push to the main branch.
+Published pages:
+- index.html: journal homepage and author information for Kumar Ashwani.
+- articles/rag-pipeline.html: RAG pipeline architecture.
+- articles/ai-agents.html: AI agent tools, state, and control loops.
+- articles/ai-system-design.html: production GenAI system design.
 
-Important:
-- This bundle intentionally does NOT replace style.css or script.js.
-- Keep your existing CSS and JS files.
-- The sitemap lists only pages included in this bundle. Update it whenever you add or remove published pages.
-- Search indexing and rankings are not guaranteed. Search Console verification and sitemap submission must be completed separately.
+When publishing a page:
+1. Give it a distinct, accurate title, description, H1, canonical URL, and visible author attribution.
+2. Link it from a relevant existing page and add useful contextual links to related guides.
+3. Keep JSON-LD consistent with visible content; do not add unsupported dates, credentials, or author claims.
+4. Add its canonical URL to sitemap.xml and check its links, metadata, structured data, and mobile layout.
+5. Push the changes to the GitHub Pages deployment branch and confirm the published page loads.
+
+robots.txt currently permits crawling and references sitemap.xml. Submit the sitemap in
+Google Search Console after verifying the site property. Search indexing and rankings
+are determined by Google and are not guaranteed by repository changes.

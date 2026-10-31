@@ -7,40 +7,56 @@
   <meta name="description" content="Learn the main stages of a retrieval-augmented generation pipeline, including document ingestion, chunking, embeddings, hybrid search, reranking, and evaluation.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://ashwaniashu.github.io/ai-engineering-journal/articles/rag-pipeline.html">
+  <meta name="author" content="Kumar Ashwani">
   <meta property="og:type" content="article">
   <meta property="og:title" content="RAG Pipeline Architecture: Retrieval, Context and Generation">
   <meta property="og:description" content="Learn the main stages of a retrieval-augmented generation pipeline, including document ingestion, chunking, embeddings, hybrid search, reranking, and evaluation.">
   <meta property="og:url" content="https://ashwaniashu.github.io/ai-engineering-journal/articles/rag-pipeline.html">
   <meta property="og:site_name" content="AI Engineering Journal">
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:description" content="Learn the main stages of a retrieval-augmented generation pipeline, including document ingestion, chunking, embeddings, hybrid search, reranking, and evaluation.">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../article.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
+    "@type": "BlogPosting",
+    "@id": "https://ashwaniashu.github.io/ai-engineering-journal/articles/rag-pipeline.html#blogposting",
     "headline": "RAG Pipeline Architecture: Retrieval, Context and Generation",
     "description": "Learn the main stages of a retrieval-augmented generation pipeline, including document ingestion, chunking, embeddings, hybrid search, reranking, and evaluation.",
     "mainEntityOfPage": "https://ashwaniashu.github.io/ai-engineering-journal/articles/rag-pipeline.html",
-    "publisher": { "@type": "Organization", "name": "AI Engineering Journal" }
+    "author": {
+      "@type": "Person",
+      "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#kumar-ashwani",
+      "name": "Kumar Ashwani",
+      "url": "https://ashwaniashu.github.io/ai-engineering-journal/#about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#organization",
+      "name": "AI Engineering Journal",
+      "url": "https://ashwaniashu.github.io/ai-engineering-journal/"
+    },
+    "isPartOf": { "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#website" },
+    "inLanguage": "en"
   }
   </script>
 </head>
 <body>
   <header class="navbar">
-    <a class="brand" href="../index.html">AI Engineering Journal<span>.</span></a>
+    <a class="brand" href="../">AI Engineering Journal<span>.</span></a>
     <nav aria-label="Main navigation">
-      <a href="../index.html#articles">Articles</a>
-      <a href="../index.html#topics">Topics</a>
-      <a href="../index.html#about">About</a>
+      <a href="../#articles">Articles</a>
+      <a href="../#topics">Topics</a>
+      <a href="../#about">About</a>
     </nav>
   </header>
   <main class="article-page">
-    <p class="breadcrumbs"><a href="../index.html">Home</a> / RAG</p>
+    <p class="breadcrumbs"><a href="../">Home</a> / RAG</p>
     <p class="eyebrow">RAG</p>
     <h1>RAG Pipeline Architecture: Retrieval, Context and Generation</h1>
     <p class="article-lede">A practical introduction to designing a retrieval-augmented generation pipeline, from document ingestion and chunking to retrieval, grounded generation, and evaluation.</p>
-    <p class="article-meta">AI Engineering Journal · Practical engineering guide</p>
+    <p class="article-meta">By <a href="../#about">Kumar Ashwani</a> · AI Engineering Journal · Practical engineering guide</p>
     
 <h2>What is a RAG pipeline?</h2>
 <p>Retrieval-augmented generation (RAG) gives a language model relevant information from an external knowledge source at answer time. Instead of relying only on information encoded in model parameters, the application retrieves passages and includes them in the prompt. RAG is useful when answers must reflect private documents, frequently updated information, or sources that can be cited.</p>
@@ -92,15 +108,15 @@ def answer_question(question):
   <li>Retrieved content is shown without checking user permissions.</li>
 </ul>
 <div class="callout"><strong>Engineering takeaway:</strong> RAG quality is not just a model choice. It is the combined result of data preparation, retrieval, ranking, prompting, access control, and evaluation.</div>
+<p>For guidance on serving retrieval in a reliable, cost-aware API, continue with the <a href="ai-system-design.html">GenAI system design guide to latency, caching, and reliability</a>.</p>
 
     <section class="related-articles">
       <h2>Continue learning</h2>
       <ul>
-        <li><a href="rag-pipeline.html">RAG pipeline architecture</a></li>
-        <li><a href="ai-agents.html">AI agents: tools and control loops</a></li>
-        <li><a href="ai-system-design.html">GenAI system design</a></li>
+        <li><a href="ai-agents.html">AI agent architecture: tools, state, and control loops</a></li>
+        <li><a href="ai-system-design.html">Production GenAI system design: latency and reliability</a></li>
       </ul>
-      <p><a href="../index.html">← Back to AI Engineering Journal</a></p>
+      <p><a href="../">← Back to AI Engineering Journal</a></p>
     </section>
   </main>
   <footer><p>© 2026 AI Engineering Journal · Built for curious engineers.</p></footer>

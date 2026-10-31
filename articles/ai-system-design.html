@@ -7,40 +7,56 @@
   <meta name="description" content="Learn production GenAI system design practices for latency measurement, caching, retries, timeouts, observability, cost control, and graceful failure.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-system-design.html">
+  <meta name="author" content="Kumar Ashwani">
   <meta property="og:type" content="article">
   <meta property="og:title" content="GenAI System Design: Latency, Caching and Reliability">
   <meta property="og:description" content="Learn production GenAI system design practices for latency measurement, caching, retries, timeouts, observability, cost control, and graceful failure.">
   <meta property="og:url" content="https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-system-design.html">
   <meta property="og:site_name" content="AI Engineering Journal">
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:description" content="Learn production GenAI system design practices for latency measurement, caching, retries, timeouts, observability, cost control, and graceful failure.">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../article.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
+    "@type": "BlogPosting",
+    "@id": "https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-system-design.html#blogposting",
     "headline": "GenAI System Design: Latency, Caching and Reliability",
     "description": "Learn production GenAI system design practices for latency measurement, caching, retries, timeouts, observability, cost control, and graceful failure.",
     "mainEntityOfPage": "https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-system-design.html",
-    "publisher": { "@type": "Organization", "name": "AI Engineering Journal" }
+    "author": {
+      "@type": "Person",
+      "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#kumar-ashwani",
+      "name": "Kumar Ashwani",
+      "url": "https://ashwaniashu.github.io/ai-engineering-journal/#about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#organization",
+      "name": "AI Engineering Journal",
+      "url": "https://ashwaniashu.github.io/ai-engineering-journal/"
+    },
+    "isPartOf": { "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#website" },
+    "inLanguage": "en"
   }
   </script>
 </head>
 <body>
   <header class="navbar">
-    <a class="brand" href="../index.html">AI Engineering Journal<span>.</span></a>
+    <a class="brand" href="../">AI Engineering Journal<span>.</span></a>
     <nav aria-label="Main navigation">
-      <a href="../index.html#articles">Articles</a>
-      <a href="../index.html#topics">Topics</a>
-      <a href="../index.html#about">About</a>
+      <a href="../#articles">Articles</a>
+      <a href="../#topics">Topics</a>
+      <a href="../#about">About</a>
     </nav>
   </header>
   <main class="article-page">
-    <p class="breadcrumbs"><a href="../index.html">Home</a> / System Design</p>
+    <p class="breadcrumbs"><a href="../">Home</a> / System Design</p>
     <p class="eyebrow">SYSTEM DESIGN</p>
     <h1>GenAI System Design: Latency, Caching and Reliability</h1>
     <p class="article-lede">A practical guide to designing production GenAI APIs that are measurable, resilient, cost-aware, and safe under partial failure.</p>
-    <p class="article-meta">AI Engineering Journal · Practical engineering guide</p>
+    <p class="article-meta">By <a href="../#about">Kumar Ashwani</a> · AI Engineering Journal · Practical engineering guide</p>
     
 <h2>Start with the request path</h2>
 <p>A production GenAI request may pass through an API gateway, authentication, input validation, retrieval, one or more model calls, post-processing, and response streaming. Before optimizing, measure each stage independently. A user-visible response time of ten seconds does not prove the model call itself takes ten seconds.</p>
@@ -70,15 +86,15 @@
 </ul>
 <p>Protect observability data: redact secrets, minimize sensitive user content, restrict access, and set retention policies. Logs should help diagnose the system without becoming a second source of sensitive data.</p>
 <div class="callout"><strong>Engineering takeaway:</strong> production GenAI requires ordinary distributed-systems discipline plus model-specific quality and cost monitoring. Measure first, then optimize the bottleneck you can prove.</div>
+<p>For the retrieval-specific side of a GenAI request, read the <a href="rag-pipeline.html">RAG pipeline architecture guide</a>. For model-driven tool workflows and their control loops, see the <a href="ai-agents.html">AI agent architecture guide</a>.</p>
 
     <section class="related-articles">
       <h2>Continue learning</h2>
       <ul>
-        <li><a href="rag-pipeline.html">RAG pipeline architecture</a></li>
-        <li><a href="ai-agents.html">AI agents: tools and control loops</a></li>
-        <li><a href="ai-system-design.html">GenAI system design</a></li>
+        <li><a href="rag-pipeline.html">RAG pipeline architecture: retrieval and generation</a></li>
+        <li><a href="ai-agents.html">AI agent architecture: tools, state, and control loops</a></li>
       </ul>
-      <p><a href="../index.html">← Back to AI Engineering Journal</a></p>
+      <p><a href="../">← Back to AI Engineering Journal</a></p>
     </section>
   </main>
   <footer><p>© 2026 AI Engineering Journal · Built for curious engineers.</p></footer>

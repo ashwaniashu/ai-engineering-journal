@@ -7,40 +7,56 @@
   <meta name="description" content="Understand AI agent architecture, tool calling, execution loops, single-agent versus multi-agent designs, guardrails, and evaluation.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-agents.html">
+  <meta name="author" content="Kumar Ashwani">
   <meta property="og:type" content="article">
   <meta property="og:title" content="AI Agents Explained: Tools, State and Control Loops">
   <meta property="og:description" content="Understand AI agent architecture, tool calling, execution loops, single-agent versus multi-agent designs, guardrails, and evaluation.">
   <meta property="og:url" content="https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-agents.html">
   <meta property="og:site_name" content="AI Engineering Journal">
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:description" content="Understand AI agent architecture, tool calling, execution loops, single-agent versus multi-agent designs, guardrails, and evaluation.">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../article.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
+    "@type": "BlogPosting",
+    "@id": "https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-agents.html#blogposting",
     "headline": "AI Agents Explained: Tools, State and Control Loops",
     "description": "Understand AI agent architecture, tool calling, execution loops, single-agent versus multi-agent designs, guardrails, and evaluation.",
     "mainEntityOfPage": "https://ashwaniashu.github.io/ai-engineering-journal/articles/ai-agents.html",
-    "publisher": { "@type": "Organization", "name": "AI Engineering Journal" }
+    "author": {
+      "@type": "Person",
+      "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#kumar-ashwani",
+      "name": "Kumar Ashwani",
+      "url": "https://ashwaniashu.github.io/ai-engineering-journal/#about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#organization",
+      "name": "AI Engineering Journal",
+      "url": "https://ashwaniashu.github.io/ai-engineering-journal/"
+    },
+    "isPartOf": { "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#website" },
+    "inLanguage": "en"
   }
   </script>
 </head>
 <body>
   <header class="navbar">
-    <a class="brand" href="../index.html">AI Engineering Journal<span>.</span></a>
+    <a class="brand" href="../">AI Engineering Journal<span>.</span></a>
     <nav aria-label="Main navigation">
-      <a href="../index.html#articles">Articles</a>
-      <a href="../index.html#topics">Topics</a>
-      <a href="../index.html#about">About</a>
+      <a href="../#articles">Articles</a>
+      <a href="../#topics">Topics</a>
+      <a href="../#about">About</a>
     </nav>
   </header>
   <main class="article-page">
-    <p class="breadcrumbs"><a href="../index.html">Home</a> / AI Agents</p>
+    <p class="breadcrumbs"><a href="../">Home</a> / AI Agents</p>
     <p class="eyebrow">AI AGENTS</p>
     <h1>AI Agents Explained: Tools, State and Control Loops</h1>
     <p class="article-lede">Understand how an AI agent uses tools and state to complete a task, and how to design the surrounding software for reliable, observable execution.</p>
-    <p class="article-meta">AI Engineering Journal · Practical engineering guide</p>
+    <p class="article-meta">By <a href="../#about">Kumar Ashwani</a> · AI Engineering Journal · Practical engineering guide</p>
     
 <h2>What is an AI agent?</h2>
 <p>An AI agent is an application in which a model uses context and available tools to decide what action to take next. A simple chatbot usually responds to a message. An agent can call a search function, query an order system, execute a permitted operation, inspect the result, and then respond or continue working.</p>
@@ -82,15 +98,15 @@
 <h2>How to evaluate an agent</h2>
 <p>Create task-based tests with expected outcomes. Measure task completion, tool-selection accuracy, invalid or unnecessary calls, policy violations, latency, and cost. Test edge cases such as missing data, tool timeouts, ambiguous requests, and permission denials. Evaluate complete workflows, not only the model's final text.</p>
 <div class="callout"><strong>Engineering takeaway:</strong> an agent is a model-driven control loop inside a normal software system. Keep execution, permissions, validation, and observability under application control.</div>
+<p>When an agent depends on external knowledge, the <a href="rag-pipeline.html">RAG pipeline architecture guide</a> explains ingestion, retrieval, grounded generation, and evaluation. For production request handling, see the <a href="ai-system-design.html">GenAI system design guide</a>.</p>
 
     <section class="related-articles">
       <h2>Continue learning</h2>
       <ul>
-        <li><a href="rag-pipeline.html">RAG pipeline architecture</a></li>
-        <li><a href="ai-agents.html">AI agents: tools and control loops</a></li>
-        <li><a href="ai-system-design.html">GenAI system design</a></li>
+        <li><a href="rag-pipeline.html">RAG pipeline architecture: retrieval and generation</a></li>
+        <li><a href="ai-system-design.html">Production GenAI system design: latency and reliability</a></li>
       </ul>
-      <p><a href="../index.html">← Back to AI Engineering Journal</a></p>
+      <p><a href="../">← Back to AI Engineering Journal</a></p>
     </section>
   </main>
   <footer><p>© 2026 AI Engineering Journal · Built for curious engineers.</p></footer>

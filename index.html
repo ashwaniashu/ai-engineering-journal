@@ -5,18 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>AI Engineering Journal | RAG, AI Agents & GenAI System Design</title>
-  <meta name="description" content="Practical engineering guides to retrieval-augmented generation (RAG), AI agents, and production GenAI system design, with Python examples and architecture trade-offs.">
+  <title>AI Engineering Journal | Applied AI &amp; Agentic Systems</title>
+  <meta name="description" content="Kumar Ashwani's AI Engineering Journal explores applied AI, agentic and multi-agent systems, RAG, AI system design, and practical AI interview preparation.">
+  <meta name="author" content="Kumar Ashwani">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://ashwaniashu.github.io/ai-engineering-journal/">
   <meta name="theme-color" content="#0b1020">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AI Engineering Journal | RAG, AI Agents & GenAI System Design">
-  <meta property="og:description" content="Practical engineering guides to build reliable GenAI applications, RAG pipelines, AI agents, and scalable AI APIs.">
+  <meta property="og:title" content="AI Engineering Journal | Applied AI &amp; Agentic Systems">
+  <meta property="og:description" content="Kumar Ashwani's AI Engineering Journal explores applied AI, agentic and multi-agent systems, RAG, AI system design, and practical AI interview preparation.">
   <meta property="og:url" content="https://ashwaniashu.github.io/ai-engineering-journal/">
   <meta property="og:site_name" content="AI Engineering Journal">
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:description" content="Applied AI, agentic and multi-agent systems, RAG, AI system design, and interview preparation from senior AI engineer Kumar Ashwani.">
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="article.css">
@@ -25,16 +27,48 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "AI Engineering Journal",
-    "url": "https://ashwaniashu.github.io/ai-engineering-journal/",
-    "description": "Practical engineering guides to RAG, AI agents, and production GenAI system design."
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#website",
+        "name": "AI Engineering Journal",
+        "url": "https://ashwaniashu.github.io/ai-engineering-journal/",
+        "description": "Professional, accessible guidance on applied AI, agentic and multi-agent systems, RAG, AI system design, and AI interview preparation.",
+        "inLanguage": "en",
+        "author": { "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#kumar-ashwani" },
+        "publisher": { "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#organization",
+        "name": "AI Engineering Journal",
+        "url": "https://ashwaniashu.github.io/ai-engineering-journal/"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://ashwaniashu.github.io/ai-engineering-journal/#kumar-ashwani",
+        "name": "Kumar Ashwani",
+        "url": "https://ashwaniashu.github.io/ai-engineering-journal/#about",
+        "sameAs": "https://www.linkedin.com/in/ashwani-kumar-ashu-839019b1/",
+        "jobTitle": "Senior AI Engineer",
+        "description": "A senior AI engineer who helps organizations build AI systems and supports people preparing for AI interviews. Writes original, accessible content about applied AI and emerging AI engineering topics.",
+        "knowsAbout": [
+          "Applied artificial intelligence",
+          "Agentic AI",
+          "Multi-agent systems",
+          "Retrieval-augmented generation",
+          "AI system design",
+          "AI interview preparation",
+          "Generative AI engineering"
+        ]
+      }
+    ]
   }
   </script>
 </head>
 <body>
   <header class="navbar">
-    <a class="brand" href="index.html">AI Engineering Journal<span>.</span></a>
+    <a class="brand" href="./">AI Engineering Journal<span>.</span></a>
     <nav aria-label="Main navigation">
       <a href="#articles">Articles</a>
       <a href="#topics">Topics</a>
@@ -44,17 +78,46 @@
 
   <main>
     <section class="hero">
-      <p class="eyebrow">PRACTICAL AI ENGINEERING</p>
-      <h1>Build reliable <span>GenAI systems.</span></h1>
+      <p class="eyebrow">APPLIED AI · SYSTEMS · ENGINEERING</p>
+      <h1>Applied AI and <span>agentic systems,</span> engineered with intent.</h1>
       <p class="intro">
-        Hands-on guides to RAG pipelines, AI agents, and production system design —
-        with implementation patterns, evaluation methods, and engineering trade-offs.
+        I’m Kumar Ashwani, a senior AI engineer. I help organizations build AI systems
+        and publish clear, technically grounded perspectives on applied AI, agentic
+        and multi-agent systems, RAG, and the engineering decisions behind them.
       </p>
-      <a class="primary-button" href="#articles">Explore the guides →</a>
+      <div class="hero-actions">
+        <a class="primary-button" href="#articles">Explore the journal</a>
+        <a class="secondary-link" href="#about">About the author</a>
+      </div>
     </section>
 
-    <section id="topics" class="topics">
-      <p class="eyebrow">EXPLORE BY TOPIC</p>
+    <section class="focus" aria-labelledby="focus-heading">
+      <div class="focus-heading">
+        <p class="eyebrow">AREAS OF FOCUS</p>
+        <h2 id="focus-heading">From applied AI to agentic architectures</h2>
+        <p>Practical perspectives for building, understanding, and working with modern AI systems.</p>
+      </div>
+      <div class="focus-grid">
+        <article class="focus-card">
+          <p class="focus-number">01</p>
+          <h3>Applied AI systems</h3>
+          <p>System design, RAG, evaluation, and engineering trade-offs for useful AI applications.</p>
+        </article>
+        <article class="focus-card">
+          <p class="focus-number">02</p>
+          <h3>Agentic &amp; multi-agent AI</h3>
+          <p>Agents, tool use, state, orchestration, and the design questions behind multi-agent systems.</p>
+        </article>
+        <article class="focus-card">
+          <p class="focus-number">03</p>
+          <h3>AI learning &amp; interviews</h3>
+          <p>Clear explanations of AI engineering concepts and practical support for AI interview preparation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="topics" class="topics" aria-labelledby="topics-heading">
+      <h2 class="eyebrow" id="topics-heading">EXPLORE BY TOPIC</h2>
       <div class="filters" aria-label="Filter articles by topic">
         <button class="filter active" data-topic="all" type="button">All</button>
         <button class="filter" data-topic="GenAI" type="button">GenAI</button>
@@ -75,21 +138,21 @@
       </div>
 
       <div id="article-list" class="article-grid">
-        <article class="article-card" data-topic="RAG">
+        <article class="article-card" data-topic="GenAI RAG">
           <p class="tag">RAG</p>
           <h3><a href="articles/rag-pipeline.html">RAG Pipeline Architecture: Retrieval, Context and Generation</a></h3>
           <p>Understand document ingestion, chunking, embeddings, retrieval, context construction, and answer generation.</p>
           <a href="articles/rag-pipeline.html" aria-label="Read RAG pipeline architecture guide">Read guide →</a>
         </article>
 
-        <article class="article-card" data-topic="AI Agents">
+        <article class="article-card" data-topic="GenAI AI Agents">
           <p class="tag">AI AGENTS</p>
           <h3><a href="articles/ai-agents.html">AI Agents Explained: Tools, State and Control Loops</a></h3>
           <p>Learn how an agent selects tools, executes actions, observes results, and decides what to do next.</p>
           <a href="articles/ai-agents.html" aria-label="Read AI agents guide">Read guide →</a>
         </article>
 
-        <article class="article-card" data-topic="System Design">
+        <article class="article-card" data-topic="GenAI System Design">
           <p class="tag">SYSTEM DESIGN</p>
           <h3><a href="articles/ai-system-design.html">GenAI System Design: Latency, Caching and Reliability</a></h3>
           <p>Design production AI APIs with timeouts, retries, caching, observability, and clear failure handling.</p>
@@ -100,9 +163,19 @@
     </section>
 
     <section id="about" class="about">
-      <p class="eyebrow">ABOUT THIS JOURNAL</p>
-      <h2>Learn it. Build it. Explain it.</h2>
-      <p>AI Engineering Journal shares practical, technically grounded lessons for engineers building useful and reliable AI applications. Articles aim to explain not just how a pattern works, but when to use it, what can go wrong, and how to evaluate the result.</p>
+      <div class="about-heading">
+        <p class="eyebrow">ABOUT THE AUTHOR</p>
+        <h2>Kumar Ashwani</h2>
+        <p class="author-role">Senior AI Engineer · Applied AI · AI Engineering Journal</p>
+      </div>
+      <div class="about-copy">
+        <p>I help organizations build AI systems and support people preparing for AI interviews. Through AI Engineering Journal, I make complex AI engineering ideas easier to understand without losing the technical detail.</p>
+        <p>My focus includes applied AI, agentic AI and multi-agent systems, retrieval-augmented generation (RAG), AI system design, and the practical choices involved in building AI applications. I aim to create original, approachable content shaped by current developments and the questions people are asking.</p>
+        <div class="profile-links">
+          <span class="profile-link-label">Professional profile</span>
+          <a class="profile-link-placeholder" href="https://www.linkedin.com/in/ashwani-kumar-ashu-839019b1/" target="_blank" rel="me noopener noreferrer">LinkedIn profile <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
     </section>
   </main>
 
