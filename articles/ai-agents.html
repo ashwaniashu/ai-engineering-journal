@@ -50,14 +50,17 @@
       <a href="../#articles">Articles</a>
       <a href="../#topics">Topics</a>
       <a href="../#about">About</a>
+      <a href="../account.html">Account</a>
     </nav>
   </header>
+  <p class="site-status" data-site-status role="status" aria-live="polite" hidden></p>
   <main class="article-page">
     <p class="breadcrumbs"><a href="../">Home</a> / AI Agents</p>
     <p class="eyebrow">AI AGENTS</p>
     <h1>AI Agents Explained: Tools, State and Control Loops</h1>
     <p class="article-lede">Understand how an AI agent uses tools and state to complete a task, and how to design the surrounding software for reliable, observable execution.</p>
     <p class="article-meta">By <a href="../#about">Kumar Ashwani</a> · AI Engineering Journal · Practical engineering guide</p>
+    <button class="bookmark-button" type="button" data-bookmark-slug="ai-agents" aria-pressed="false">Save article</button>
     
 <h2>What is an AI agent?</h2>
 <p>An AI agent is an application in which a model uses context and available tools to decide what action to take next. A simple chatbot usually responds to a message. An agent can call a search function, query an order system, execute a permitted operation, inspect the result, and then respond or continue working.</p>
@@ -110,6 +113,9 @@
       <p><a href="../">← Back to AI Engineering Journal</a></p>
     </section>
   </main>
-  <footer><p>© 2026 AI Engineering Journal · Built for curious engineers.</p></footer>
+  <footer><p>© 2026 AI Engineering Journal · Practical perspectives on building AI systems.</p></footer>
+  <script src="../supabase-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" defer></script>
+  <script src="../site-auth.js" defer></script>
 </body>
 </html>

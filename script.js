@@ -13,7 +13,7 @@ function updateArticles() {
   cards.forEach(card => {
     const matchesTopic =
       selectedTopic === "all" ||
-      card.dataset.topic.split(/\s+/).includes(selectedTopic);
+      card.dataset.topic.split("|").includes(selectedTopic);
 
     const matchesSearch = card.textContent
       .toLowerCase()

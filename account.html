@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Account | AI Engineering Journal</title>
+  <meta name="description" content="Create an account or sign in to save articles and read members-only AI engineering content.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="https://ashwaniashu.github.io/ai-engineering-journal/account.html">
+  <meta name="theme-color" content="#0a0f1b">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="article.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="./">AI Engineering Journal<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="./#articles">Articles</a>
+      <a href="./#topics">Topics</a>
+      <a href="./#about">About</a>
+    </nav>
+  </header>
+  <p class="site-status" data-site-status role="status" aria-live="polite" hidden></p>
+
+  <main class="account-page">
+    <div class="account-layout">
+      <section class="account-intro" aria-labelledby="account-heading">
+        <p class="eyebrow">YOUR READING SPACE</p>
+        <h1 id="account-heading">A more focused way to learn.</h1>
+        <p class="account-lede">Sign in to keep your engineering references close and continue exploring practical AI systems.</p>
+        <ul class="account-benefits">
+          <li><span aria-hidden="true">01</span><div><strong>Save useful guides</strong><p>Build a personal reading list across the journal.</p></div></li>
+          <li><span aria-hidden="true">02</span><div><strong>Read member articles</strong><p>Access published premium engineering content.</p></div></li>
+          <li><span aria-hidden="true">03</span><div><strong>Pick up where you left off</strong><p>Your saved articles stay associated with your account.</p></div></li>
+        </ul>
+        <a class="account-back-link" href="./#articles">Browse the journal <span aria-hidden="true">→</span></a>
+      </section>
+
+      <section class="account-panel" aria-label="Account access">
+        <p id="account-setup-message" class="setup-notice" role="status" aria-live="polite" hidden></p>
+        <p id="account-status" class="account-status" role="status" aria-live="polite" hidden></p>
+
+        <div class="auth-forms">
+          <div class="auth-switch" role="group" aria-label="Choose an account option">
+            <button type="button" class="auth-tab is-active" aria-pressed="true" aria-controls="login-form" data-account-view="login">Sign in</button>
+            <button type="button" class="auth-tab" aria-pressed="false" aria-controls="signup-form" data-account-view="signup">Create account</button>
+          </div>
+
+          <form id="login-form" class="auth-form" aria-labelledby="login-heading">
+            <h2 id="login-heading">Welcome back</h2>
+            <p class="form-intro">Sign in to access your saved reading list.</p>
+            <label for="login-email">Email address</label>
+            <input id="login-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <label for="login-password">Password</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+            <button class="primary-button auth-submit" type="submit">Sign in</button>
+            <button class="text-button auth-helper" type="button" data-account-view="reset">Forgot your password?</button>
+          </form>
+
+          <form id="signup-form" class="auth-form" aria-labelledby="signup-heading" hidden>
+            <h2 id="signup-heading">Create your account</h2>
+            <p class="form-intro">Save guides and access published member articles.</p>
+            <label for="signup-email">Email address</label>
+            <input id="signup-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <label for="signup-password">Create a password</label>
+            <input id="signup-password" name="password" type="password" autocomplete="new-password" placeholder="Choose a secure password" required>
+            <p class="field-hint">Choose a strong, unique password that meets the site’s minimum length.</p>
+            <button class="primary-button auth-submit" type="submit">Create account</button>
+            <p class="form-footnote">You may need to confirm your email before signing in.</p>
+          </form>
+
+          <form id="reset-form" class="auth-form" aria-labelledby="reset-heading" hidden>
+            <h2 id="reset-heading">Reset your password</h2>
+            <p class="form-intro">Enter your account email and we’ll send instructions if an account is registered.</p>
+            <label for="reset-email">Email address</label>
+            <input id="reset-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <button class="primary-button auth-submit" type="submit">Send reset instructions</button>
+            <button class="text-button auth-helper" type="button" data-account-view="login">Back to sign in</button>
+          </form>
+
+          <form id="recovery-form" class="auth-form" aria-labelledby="recovery-heading" hidden>
+            <h2 id="recovery-heading">Choose a new password</h2>
+            <p class="form-intro">Set a new password for your account.</p>
+            <label for="new-password">New password</label>
+            <input id="new-password" name="password" type="password" autocomplete="new-password" placeholder="Choose a secure password" required>
+            <button class="primary-button auth-submit" type="submit">Update password</button>
+          </form>
+
+          <section id="account-session" class="account-session" aria-labelledby="session-heading" hidden>
+            <div class="session-heading">
+              <span class="session-indicator" aria-hidden="true"></span>
+              <div><p class="eyebrow">ACCOUNT</p><h2 id="session-heading">You’re signed in</h2></div>
+            </div>
+            <p class="session-email-label">Signed in as</p>
+            <p class="session-email" id="account-email"></p>
+            <button id="logout-button" class="secondary-button" type="button">Sign out</button>
+            <div class="saved-articles">
+              <div class="saved-heading"><div><p class="eyebrow">YOUR LIBRARY</p><h2>Saved articles</h2></div></div>
+              <p id="saved-empty">Your reading list is empty for now. Save an article from any guide to keep it here.</p>
+              <ul id="saved-article-list"></ul>
+            </div>
+          </section>
+        </div>
+        <p class="account-privacy">Your account is used to manage saved articles and member access.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer><p>© 2026 AI Engineering Journal · Practical perspectives on building AI systems.</p></footer>
+  <script src="supabase-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" defer></script>
+  <script src="site-auth.js" defer></script>
+</body>
+</html>

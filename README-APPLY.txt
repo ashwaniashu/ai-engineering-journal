@@ -3,6 +3,10 @@ AI Engineering Journal — site maintenance
 This repository is the source for the GitHub Pages site:
 https://ashwaniashu.github.io/ai-engineering-journal/
 
+Account, bookmarks, premium content, and Supabase setup instructions are
+documented in SUPABASE-SETUP.md. Do not publish a Supabase service-role/secret
+key; only the project's publishable/anon key belongs in supabase-config.js.
+
 Published pages:
 - index.html: journal homepage and author information for Kumar Ashwani.
 - articles/rag-pipeline.html: RAG pipeline architecture.

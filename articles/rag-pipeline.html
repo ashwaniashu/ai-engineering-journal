@@ -50,14 +50,17 @@
       <a href="../#articles">Articles</a>
       <a href="../#topics">Topics</a>
       <a href="../#about">About</a>
+      <a href="../account.html">Account</a>
     </nav>
   </header>
+  <p class="site-status" data-site-status role="status" aria-live="polite" hidden></p>
   <main class="article-page">
     <p class="breadcrumbs"><a href="../">Home</a> / RAG</p>
     <p class="eyebrow">RAG</p>
     <h1>RAG Pipeline Architecture: Retrieval, Context and Generation</h1>
     <p class="article-lede">A practical introduction to designing a retrieval-augmented generation pipeline, from document ingestion and chunking to retrieval, grounded generation, and evaluation.</p>
     <p class="article-meta">By <a href="../#about">Kumar Ashwani</a> · AI Engineering Journal · Practical engineering guide</p>
+    <button class="bookmark-button" type="button" data-bookmark-slug="rag-pipeline" aria-pressed="false">Save article</button>
     
 <h2>What is a RAG pipeline?</h2>
 <p>Retrieval-augmented generation (RAG) gives a language model relevant information from an external knowledge source at answer time. Instead of relying only on information encoded in model parameters, the application retrieves passages and includes them in the prompt. RAG is useful when answers must reflect private documents, frequently updated information, or sources that can be cited.</p>
@@ -120,6 +123,9 @@ def answer_question(question):
       <p><a href="../">← Back to AI Engineering Journal</a></p>
     </section>
   </main>
-  <footer><p>© 2026 AI Engineering Journal · Built for curious engineers.</p></footer>
+  <footer><p>© 2026 AI Engineering Journal · Practical perspectives on building AI systems.</p></footer>
+  <script src="../supabase-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" defer></script>
+  <script src="../site-auth.js" defer></script>
 </body>
 </html>

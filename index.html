@@ -74,8 +74,10 @@
       <a href="#articles">Articles</a>
       <a href="#topics">Topics</a>
       <a href="#about">About</a>
+      <a href="account.html">Account</a>
     </nav>
   </header>
+  <p class="site-status" data-site-status role="status" aria-live="polite" hidden></p>
 
   <main>
     <section class="hero">
@@ -124,6 +126,8 @@
         <button class="filter" data-topic="GenAI" type="button">GenAI</button>
         <button class="filter" data-topic="RAG" type="button">RAG</button>
         <button class="filter" data-topic="AI Agents" type="button">AI Agents</button>
+        <button class="filter" data-topic="Agentic AI" type="button">Agentic AI</button>
+        <button class="filter" data-topic="Multi-agent Systems" type="button">Multi-agent Systems</button>
         <button class="filter" data-topic="System Design" type="button">System Design</button>
       </div>
     </section>
@@ -139,28 +143,39 @@
       </div>
 
       <div id="article-list" class="article-grid">
-        <article class="article-card" data-topic="GenAI RAG">
+        <article class="article-card" data-topic="GenAI|RAG">
           <p class="tag">RAG</p>
           <h3><a href="articles/rag-pipeline.html">RAG Pipeline Architecture: Retrieval, Context and Generation</a></h3>
           <p>Understand document ingestion, chunking, embeddings, retrieval, context construction, and answer generation.</p>
           <a href="articles/rag-pipeline.html" aria-label="Read RAG pipeline architecture guide">Read guide →</a>
+          <button class="bookmark-button" type="button" data-bookmark-slug="rag-pipeline" aria-pressed="false">Save article</button>
         </article>
 
-        <article class="article-card" data-topic="GenAI AI Agents">
+        <article class="article-card" data-topic="GenAI|AI Agents">
           <p class="tag">AI AGENTS</p>
           <h3><a href="articles/ai-agents.html">AI Agents Explained: Tools, State and Control Loops</a></h3>
           <p>Learn how an agent selects tools, executes actions, observes results, and decides what to do next.</p>
           <a href="articles/ai-agents.html" aria-label="Read AI agents guide">Read guide →</a>
+          <button class="bookmark-button" type="button" data-bookmark-slug="ai-agents" aria-pressed="false">Save article</button>
         </article>
 
-        <article class="article-card" data-topic="GenAI System Design">
+        <article class="article-card" data-topic="GenAI|System Design">
           <p class="tag">SYSTEM DESIGN</p>
           <h3><a href="articles/ai-system-design.html">GenAI System Design: Latency, Caching and Reliability</a></h3>
           <p>Design production AI APIs with timeouts, retries, caching, observability, and clear failure handling.</p>
           <a href="articles/ai-system-design.html" aria-label="Read GenAI system design guide">Read guide →</a>
+          <button class="bookmark-button" type="button" data-bookmark-slug="ai-system-design" aria-pressed="false">Save article</button>
+        </article>
+
+        <article class="article-card" data-topic="GenAI|Agentic AI|Multi-agent Systems">
+          <p class="tag">PREMIUM · AGENTIC AI</p>
+          <h3><a href="articles/premium.html">Production Agentic AI Systems: Architecture and Evaluation</a></h3>
+          <p>Premium article preview. The full article is delivered from Supabase only to authenticated users.</p>
+          <a href="articles/premium.html">View premium article →</a>
+          <button class="bookmark-button" type="button" data-bookmark-slug="agentic-systems-production" aria-pressed="false">Save article</button>
         </article>
       </div>
-      <p id="empty-state" hidden>No matching articles found.</p>
+      <p id="empty-state" class="empty-state" role="status" aria-live="polite" hidden>No guides match your search. Try another term or select a different topic.</p>
     </section>
 
     <section id="about" class="about">
@@ -181,9 +196,12 @@
   </main>
 
   <footer>
-    <p>© 2026 AI Engineering Journal · Built for curious engineers.</p>
+    <p>© 2026 AI Engineering Journal · Practical perspectives on building AI systems.</p>
   </footer>
 
   <script src="script.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" defer></script>
+  <script src="site-auth.js" defer></script>
 </body>
 </html>
